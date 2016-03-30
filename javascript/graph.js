@@ -218,21 +218,21 @@ $(function() {
   update_plots(options);
 
   var update_percent = function() {
-    options.p = $(this).val();
+    options.p = parseFloat($(this).val());
     update_plots(options);
   };
 
   $('#inputs .percent').change(update_percent).keyup(update_percent);
 
   var update_sample = function() {
-    options.s = $(this).val();
+    options.s = parseInt($(this).val());
     update_plots(options);
   };
 
   $('#inputs .sample').change(update_sample).keyup(update_sample);
 
   var update_total = function() {
-    options.t = $(this).val();
+    options.t = parseInt($(this).val());
     update_plots(options);
   };
 
