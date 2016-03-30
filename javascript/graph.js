@@ -56,13 +56,15 @@ function compute(percent, sampled, total) {
   total   = parseInt(total);
 
   // Factorial function
-  var f = [];
   function factorial(n) {
-    if (n == 0 || n == 1)
-      return 1;
-    if (f[n] > 0)
-      return f[n];
-    return f[n] = factorial(n-1) * n;
+    var e = n;
+    if (e == 1 | e == 0) return 1;
+    while (n--) {
+      if (n < 1)
+        break;
+      e *= n;
+    }
+    return e
   }
 
   var probs = [];
