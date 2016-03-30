@@ -91,10 +91,14 @@ function compute(percent, sampled, total) {
     // How many ways can this outcome occur?
     var num_outcomes = 0;
 
-    num_outcomes =
-      Combinatorics.factorial(total) /
-      (Combinatorics.factorial(num_success) *
-       Combinatorics.factorial(num_failure));
+    if (total > 170) {
+      num_outcomes = Combinatorics.P(num_success, total);
+    }
+    else {
+      num_outcomes =
+        factorial(total) /
+        (factorial(num_success) * factorial(num_failure));
+    }
 
     // What is the probability of this outcome occuring once?
     var prob = Math.pow(1 - percent, num_failure) *
