@@ -1,4 +1,8 @@
 function update_plots(options) {
+  options.p = parseFloat(options.p);
+  options.s = parseInt(options.s);
+  options.t = parseInt(options.t);
+
   var values = compute(options.p, options.s, options.t);
 
   $('#header h2 .group').val(options.g);
