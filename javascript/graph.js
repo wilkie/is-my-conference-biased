@@ -83,6 +83,10 @@ function compute(percent, sampled, total) {
     var total_prob = prob * num_outcomes;
     var simple_percent = Math.floor(total_prob * 1000) / 10;
 
+    if (!isFinite(simple_percent) || isNaN(simple_percent)) {
+      simple_percent = 0.0;
+    }
+
     probs[i] = [i, simple_percent];
   }
 
