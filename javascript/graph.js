@@ -92,8 +92,10 @@ function compute(percent, sampled, total) {
     var num_outcomes = 0;
 
     if (total > 170) {
-      num_outcomes =
-        math.factorial(foo);
+      num_outcomes = math.number(
+        math.divide( math.factorial(math.bignumber(total)),
+                     math.multiply( math.factorial(math.bignumber(num_success)),
+                                    math.factorial(math.bignumber(num_failure)) ) ) );
     }
     else {
       num_outcomes =
