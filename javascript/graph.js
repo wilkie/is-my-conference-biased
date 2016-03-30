@@ -90,16 +90,11 @@ function compute(percent, sampled, total) {
 
     // How many ways can this outcome occur?
     var num_outcomes = 0;
-    if (total > 170) {
-      num_outcomes =
-        bigFactorial(total).divide(
-            (bigFactorial(num_success).multiply(bigFactorial(num_failure)))).intPart();
-    }
-    else {
-      num_outcomes =
-        factorial(total) /
-        (factorial(num_success) * factorial(num_failure));
-    }
+
+    num_outcomes =
+      Combinatorics.factorial(total) /
+      (Combinatorics.factorial(num_success) *
+       Combinatorics.factorial(num_failure));
 
     // What is the probability of this outcome occuring once?
     var prob = Math.pow(1 - percent, num_failure) *
