@@ -93,7 +93,7 @@ function compute(percent, sampled, total) {
     if (total > 170) {
       num_outcomes =
         bigFactorial(total).divide(
-            (bigFactorial(num_success).multiply(bigFactorial(num_failure))).intPart();
+            (bigFactorial(num_success).multiply(bigFactorial(num_failure)))).intPart();
     }
     else {
       num_outcomes =
