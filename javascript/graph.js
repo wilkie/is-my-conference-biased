@@ -50,22 +50,22 @@ function update_plots(options) {
   window.history.pushState({},"",link);
 }
 
+// Factorial function
+function factorial(n) {
+  var e = n;
+  if (e == 1 | e == 0) return 1;
+  while (n--) {
+    if (n < 1)
+      break;
+    e *= n;
+  }
+  return e
+}
+
 function compute(percent, sampled, total) {
   percent = parseFloat(percent);
   sampled = parseInt(sampled);
   total   = parseInt(total);
-
-  // Factorial function
-  function factorial(n) {
-    var e = n;
-    if (e == 1 | e == 0) return 1;
-    while (n--) {
-      if (n < 1)
-        break;
-      e *= n;
-    }
-    return e
-  }
 
   var probs = [];
   for (var i = 0; i <= total; i++) {
