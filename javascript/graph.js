@@ -62,6 +62,22 @@ function factorial(n) {
   return e
 }
 
+var _f = [new BigNumber("1"), new BigNumber("1")];
+var _i = 2;
+function bigFactorial(n)
+{
+  if (typeof _f[n] != 'undefined') {
+    return _f[n];
+  }
+
+  var result = _f[_i-1];
+  for (; _i <= n; _i++) {
+    _f[_i] = result = result.multiply(_i.toString());
+  }
+  return result;
+}
+var _cache = 100;
+
 function compute(percent, sampled, total) {
   percent = parseFloat(percent);
   sampled = parseInt(sampled);
@@ -73,9 +89,17 @@ function compute(percent, sampled, total) {
     var num_failure = total - i;
 
     // How many ways can this outcome occur?
-    var num_outcomes =
-      factorial(total) /
-      (factorial(num_success) * factorial(num_failure));
+    var num_outcomes = 0;
+    if (total > 170) {
+      num_outcomes =
+        bigFactorial(total).divide(
+            (bigFactorial(num_success).multiply(bigFactorial(num_failure))).intPart();
+    }
+    else {
+      num_outcomes =
+        factorial(total) /
+        (factorial(num_success) * factorial(num_failure));
+    }
 
     // What is the probability of this outcome occuring once?
     var prob = Math.pow(1 - percent, num_failure) *
