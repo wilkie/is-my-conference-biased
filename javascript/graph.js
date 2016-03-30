@@ -92,7 +92,8 @@ function compute(percent, sampled, total) {
     var num_outcomes = 0;
 
     if (total > 170) {
-      num_outcomes = Combinatorics.P(num_success, total);
+      num_outcomes =
+        math.factorial(foo);
     }
     else {
       num_outcomes =
