@@ -47,6 +47,10 @@ function update_plots(options) {
 }
 
 function compute(percent, sampled, total) {
+  percent = parseFloat(percent);
+  sampled = parseInt(sampled);
+  total   = parseInt(total);
+
   // Factorial function
   var f = [];
   function factorial(n) {
